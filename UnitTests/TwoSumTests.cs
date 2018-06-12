@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class TwoSumTests
     {
         [TestMethod]
         public void ResultIsZeroAndOne()
@@ -20,7 +20,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ResultIsFiveFourTwo()
+        public void ResultExists()
         {
             var leet = new LeetCodeSolutions();
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LeetCodeProblems
@@ -30,6 +31,27 @@ namespace LeetCodeProblems
             }
 
             throw new Exception("No solution");
+        }
+
+        public bool IsPalindrome(string s)
+        {
+            //empty string or 1 char string is valid
+            if (s.Length < 2)
+                return true;
+
+            var rgx = new Regex("[^a-zA-Z0-9]");
+
+            // use regex to replace non-alphanumeric and move to Upper
+            s = rgx.Replace(s, "").ToUpper();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != s[s.Length - 1 - i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
