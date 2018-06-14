@@ -53,5 +53,36 @@ namespace LeetCodeProblems
             }
             return true;
         }
+
+        public int MyAtoi(string str)
+        {
+            // Assume val is positive to begin
+            bool isPos = true;
+
+            // first check for empty/null string
+            if (str.Equals("") || str == string.Empty)
+            {
+                return 0;
+            }
+
+            // Trim all beginning whitespace
+            str = str.TrimStart(' ');
+
+            if (str[0] == '-')
+            {
+                // remove sign from string
+                str = str.Substring(0);
+                isPos = false;
+            }
+            else if (str[0] == '+')
+            {
+                str = str.Substring(0);
+            }
+
+            int result = int.Parse(str);
+
+            return isPos ? result : (result * -1);
+
+        }
     }
 }
