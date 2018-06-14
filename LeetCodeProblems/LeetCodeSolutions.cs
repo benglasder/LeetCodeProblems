@@ -62,26 +62,82 @@ namespace LeetCodeProblems
             // first check for empty/null string
             if (str.Equals("") || str == string.Empty)
             {
+                Console.WriteLine($"Input: {str} | Output: 0");
                 return 0;
             }
 
             // Trim all beginning whitespace
             str = str.TrimStart(' ');
-
-            if (str[0] == '-')
+            if (str.Equals(""))
             {
-                // remove sign from string
-                str = str.Substring(0);
-                isPos = false;
-            }
-            else if (str[0] == '+')
-            {
-                str = str.Substring(0);
+                Console.WriteLine($"Input: {str} | Output: 0");
+                return 0;
             }
 
-            int result = int.Parse(str);
 
-            return isPos ? result : (result * -1);
+            if (str.Length > 1)
+            {
+                if (str[0] == '-')
+                {
+                    // remove sign from string
+                    str = str.Substring(1);
+                    isPos = false;
+                }
+                else if (str[0] == '+')
+                {
+                    str = str.Substring(1);
+                }
+            }
+
+            if (!int.TryParse(str[0].ToString(), out _))
+            {
+                Console.WriteLine($"Input: {str} | Output: 0");
+                return 0;
+            }
+
+            // create temporary array to hold individual ints to add up later
+            int[] chars = new int[str.Length];
+
+            int length = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                
+                // Try parsing int, if int, add. If not, we reached the end
+                if (int.TryParse(str[i].ToString(), out int res))
+                {
+                    length++;
+                    chars[i] = res;
+                }
+                else
+                {
+                    // Create new smaller array
+                    int[] temp = new int[length];
+                    for (int x = 0; x < length; x++)
+                    {
+                        temp[x] = chars[x];
+                    }
+
+                    chars = temp;
+                    break;
+                }
+            }
+
+            StringBuilder sb = new StringBuilder();
+            foreach (int i in chars)
+            {
+                sb.Append(i);
+            }
+
+            var success = int.TryParse(sb.ToString(), out int result);
+
+            if (success)
+            {
+                Console.WriteLine($"Input: {str} | Output: {result}");
+                return isPos ? result : (result * -1);
+            }
+
+            Console.WriteLine($"Input: {str} | Output: {result}");
+            return isPos ? int.MaxValue : int.MinValue;
 
         }
     }

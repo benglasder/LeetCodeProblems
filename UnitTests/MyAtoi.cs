@@ -7,10 +7,11 @@ namespace UnitTests
     [TestClass]
     public class MyAtoi
     {
+        private LeetCodeSolutions leet = new LeetCodeSolutions();
+
         [TestMethod]
         public void ReturnZero()
         {
-            var leet = new LeetCodeSolutions();
 
             var str = "";
 
@@ -21,7 +22,6 @@ namespace UnitTests
         [TestMethod]
         public void FourtyTwo()
         {
-            var leet = new LeetCodeSolutions();
 
             var str = "42";
 
@@ -35,7 +35,6 @@ namespace UnitTests
         [TestMethod]
         public void FourtyTwoTrimSpace()
         {
-            var leet = new LeetCodeSolutions();
 
             var str = "      -42";
 
@@ -49,7 +48,6 @@ namespace UnitTests
         [TestMethod]
         public void FourOneNineThreeWithWords()
         {
-            var leet = new LeetCodeSolutions();
 
             var str = "4193 with words";
 
@@ -61,7 +59,6 @@ namespace UnitTests
         [TestMethod]
         public void NotValid()
         {
-            var leet = new LeetCodeSolutions();
 
             var str = "words and 987";
 
@@ -73,7 +70,6 @@ namespace UnitTests
         [TestMethod]
         public void OutOfRange()
         {
-            var leet = new LeetCodeSolutions();
 
             var str = "-91283472332";
 
@@ -83,5 +79,33 @@ namespace UnitTests
             Assert.IsTrue(leet.MyAtoi(str).Equals(-2147483648));
         }
 
+        [TestMethod]
+        public void OnlyEmptySpaces()
+        {
+            var str = " ";
+
+            Assert.IsTrue(leet.MyAtoi(str).Equals(0));
+
+            str = "         ";
+            Assert.IsTrue(leet.MyAtoi(str).Equals(0));
+        }
+
+        [TestMethod]
+        public void PlusOrMinusOnly()
+        {
+            var str = "+";
+
+            Assert.IsTrue(leet.MyAtoi(str).Equals(0));
+
+            str = "-";
+            Assert.IsTrue(leet.MyAtoi(str).Equals(0));
+        }
+
+        [TestMethod]
+        public void PlusOne()
+        {
+            var str = "+1";
+            Assert.IsTrue(leet.MyAtoi(str).Equals(1));
+        }
     }
 }
