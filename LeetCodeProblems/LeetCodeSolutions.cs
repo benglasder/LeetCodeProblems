@@ -172,7 +172,6 @@ namespace LeetCodeProblems
             // Loop through the array of chars until the end, or we reach a char that isnt numeric
             while (i < str.Length && str[i] >= '0' && str[i] <= '9')
             {
-               // Console.WriteLine($"{str[i]} | ++ {str[i++]}");
                 if (baseX > Int32.MaxValue / 10 || (baseX == Int32.MaxValue / 10 && str[i] - '0' > 7))
                 {
                     if (sign == 1)
@@ -189,8 +188,21 @@ namespace LeetCodeProblems
 
                 baseX = 10 * baseX + (str[i++] - '0');
             }
-           // Console.WriteLine($"Input: {str} | Output: {baseX * sign}");
             return baseX * sign;
         }
+
+        public string ReverseString(string s)
+        {
+            var result = new StringBuilder();
+
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                result.Append(s[i]);
+            }
+
+            Console.WriteLine($"Input: {s} | Output: {result}");
+            return result.ToString();
+        }
+
     }
 }

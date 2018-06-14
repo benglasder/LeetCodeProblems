@@ -7,7 +7,7 @@ namespace UnitTests
     [TestClass]
     public class MyAtoi2
     {
-        private LeetCodeSolutions leet = new LeetCodeSolutions();
+        private readonly LeetCodeSolutions _leet = new LeetCodeSolutions();
 
         [TestMethod]
         public void ReturnZero()
@@ -15,7 +15,7 @@ namespace UnitTests
 
             var str = "";
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(0));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(0));
 
         }
 
@@ -25,11 +25,11 @@ namespace UnitTests
 
             var str = "42";
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(0));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(0));
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(-42));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(-42));
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(42));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(42));
         }
 
         [TestMethod]
@@ -38,11 +38,11 @@ namespace UnitTests
 
             var str = "      -42";
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(0));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(0));
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(42));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(42));
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(-42));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(-42));
         }
 
         [TestMethod]
@@ -51,9 +51,9 @@ namespace UnitTests
 
             var str = "4193 with words";
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(0));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(0));
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(4193));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(4193));
         }
 
         [TestMethod]
@@ -62,9 +62,9 @@ namespace UnitTests
 
             var str = "words and 987";
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(987));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(987));
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(0));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(0));
         }
 
         [TestMethod]
@@ -73,10 +73,10 @@ namespace UnitTests
 
             var str = "-91283472332";
 
-            Assert.IsFalse(leet.MyAtoi2(str).Equals(0));
+            Assert.IsFalse(_leet.MyAtoi2(str).Equals(0));
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(int.MinValue));
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(-2147483648));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(int.MinValue));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(-2147483648));
         }
 
         [TestMethod]
@@ -84,10 +84,10 @@ namespace UnitTests
         {
             var str = " ";
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(0));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(0));
 
             str = "         ";
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(0));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(0));
         }
 
         [TestMethod]
@@ -95,17 +95,17 @@ namespace UnitTests
         {
             var str = "+";
 
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(0));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(0));
 
             str = "-";
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(0));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(0));
         }
 
         [TestMethod]
         public void PlusOne()
         {
             var str = "+1";
-            Assert.IsTrue(leet.MyAtoi2(str).Equals(1));
+            Assert.IsTrue(_leet.MyAtoi2(str).Equals(1));
         }
     }
 }
