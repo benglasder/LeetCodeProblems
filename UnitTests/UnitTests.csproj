@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MaxProfitTests.cs" />
     <Compile Include="MyAtoi2.cs" />
     <Compile Include="TwoSumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

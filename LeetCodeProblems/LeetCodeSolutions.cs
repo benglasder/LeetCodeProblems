@@ -291,5 +291,33 @@ namespace LeetCodeProblems
             
         }
 
+        public int MaxProfit(int[] prices)
+        {
+            if (prices.Length < 2)
+            {
+                return 0;
+            }
+
+            int max = 0;
+            int currMin = prices[0];
+
+            for (int i = 0; i < prices.Length; i++)
+            {
+                if (prices[i] > currMin)
+                {
+                    Console.WriteLine($"{prices[i]} is greater than the current minimum of {currMin}");
+                    
+                    max = Math.Max(max, prices[i] - currMin);
+                    Console.WriteLine($"New maximum is {max}");
+                }
+                else
+                {
+                    Console.WriteLine($"Current minimum is now {prices[i]}");
+                    currMin = prices[i];
+                }
+            }
+
+            return max;
+        }
     }
 }
