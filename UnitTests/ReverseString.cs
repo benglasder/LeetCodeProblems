@@ -61,5 +61,21 @@ namespace UnitTests
 
             _leet.ReverseWords(str);
         }
+
+        [TestMethod]
+        public void Pyramid()
+        {
+            _leet.Pyramid(-1);
+
+            _leet.Pyramid(0);
+
+            _leet.Pyramid(1);
+
+            _leet.Pyramid(2);
+
+            _leet.Pyramid(3);
+            
+            _leet.Pyramid(10);
+        }
     }
 }

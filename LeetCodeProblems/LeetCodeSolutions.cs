@@ -272,5 +272,24 @@ namespace LeetCodeProblems
             }
         }
 
+        public void Pyramid(int height)
+        {
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < height - i; j++)
+                {
+                    Console.Write(" ");
+                }
+
+                for (int k = 0; k <= i; k++)
+                {
+                    Console.Write("X ");
+                }
+                Console.WriteLine("");
+            }
+
+            
+        }
+
     }
 }
