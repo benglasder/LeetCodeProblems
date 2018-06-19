@@ -322,7 +322,92 @@ namespace LeetCodeProblems
 
         public IList<int> SpiralOrder(int[,] matrix)
         {
-            throw new NotImplementedException();
+
+            IList<int> result = new List<int>();           
+            int top = 0; // starting row index
+            int bottom = matrix.GetLength(0); // ending row index
+            int left = 0; // starting column index
+            int right = matrix.GetLength(1); // ending column index
+
+            while (left < right && top < bottom)
+            {
+                // Print first row 
+                for (int i = left; i < right; i++)
+                {
+                    result.Add(matrix[top,i]);
+                }
+
+                top++;
+
+                for (int i = top; i < bottom; i++)
+                {
+                    result.Add(matrix[i, right - 1]);
+                }
+
+                right--;
+
+                if (left < right)
+                {
+                    for (int i = right - 1; i >= left; i--)
+                    {
+                        result.Add(matrix[bottom - 1, i]);
+                    }
+
+                    bottom--;
+                }
+
+                if (top < bottom)
+                {
+                    for (int i = bottom - 1; i >= top; i--)
+                    {
+                        result.Add(matrix[i, left]);
+                    }
+
+                    left++;
+                }
+
+            }
+
+            return result;
+
+        }
+        
+        public IList<int> SpiralPrint(int[,] matrix)
+        {
+            List<int> output = new List<int>();
+            if (matrix.Length > 0)
+            {
+                int top = 0;
+                int btm = matrix.GetLength(0);
+                int lft = 0;
+                int rht = matrix.GetLength(1);
+
+                while (lft < rht && top < btm)
+                {
+                    for (int i = lft; i < rht; i++)
+                        output.Add(matrix[top, i]);
+                    top++;
+
+                    for (int i = top; i < btm; i++)
+                        output.Add(matrix[i, rht - 1]);
+                    rht--;
+
+                    if (lft < rht)
+                    {
+                        for (int i = rht - 1; i >= lft; i--)
+                            output.Add(matrix[btm - 1, i]);
+                        btm--;
+                    }
+
+                    if (top < btm)
+                    {
+                        for (int i = btm - 1; i >= top; i--)
+                            output.Add(matrix[i, lft]);
+                        lft++;
+                    }
+                }
+            }
+            return output;
         }
 
     }

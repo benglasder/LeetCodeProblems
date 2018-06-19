@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="MaxProfitTests.cs" />
     <Compile Include="MyAtoi2.cs" />
+    <Compile Include="SpiralOrderTests.cs" />
     <Compile Include="TwoSumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyAtoi.cs" />
