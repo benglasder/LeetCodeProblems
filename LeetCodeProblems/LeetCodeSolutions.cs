@@ -329,7 +329,7 @@ namespace LeetCodeProblems
             int left = 0; // starting column index
             int right = matrix.GetLength(1); // ending column index
 
-            while (left < right && top < bottom)
+            while (result.Count() < matrix.Length)
             {
                 // Print first row 
                 for (int i = left; i < right; i++)
@@ -346,7 +346,7 @@ namespace LeetCodeProblems
 
                 right--;
 
-                if (left < right)
+                if (left < right && result.Count() < matrix.Length)
                 {
                     for (int i = right - 1; i >= left; i--)
                     {
@@ -356,7 +356,7 @@ namespace LeetCodeProblems
                     bottom--;
                 }
 
-                if (top < bottom)
+                if (top < bottom && result.Count() < matrix.Length)
                 {
                     for (int i = bottom - 1; i >= top; i--)
                     {
@@ -372,43 +372,5 @@ namespace LeetCodeProblems
 
         }
         
-        public IList<int> SpiralPrint(int[,] matrix)
-        {
-            List<int> output = new List<int>();
-            if (matrix.Length > 0)
-            {
-                int top = 0;
-                int btm = matrix.GetLength(0);
-                int lft = 0;
-                int rht = matrix.GetLength(1);
-
-                while (lft < rht && top < btm)
-                {
-                    for (int i = lft; i < rht; i++)
-                        output.Add(matrix[top, i]);
-                    top++;
-
-                    for (int i = top; i < btm; i++)
-                        output.Add(matrix[i, rht - 1]);
-                    rht--;
-
-                    if (lft < rht)
-                    {
-                        for (int i = rht - 1; i >= lft; i--)
-                            output.Add(matrix[btm - 1, i]);
-                        btm--;
-                    }
-
-                    if (top < btm)
-                    {
-                        for (int i = btm - 1; i >= top; i--)
-                            output.Add(matrix[i, lft]);
-                        lft++;
-                    }
-                }
-            }
-            return output;
-        }
-
     }
 }
