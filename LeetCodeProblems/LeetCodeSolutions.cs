@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using LeetCodeEntities.Trees;
 
 namespace LeetCodeProblems
 {
@@ -382,7 +383,7 @@ namespace LeetCodeProblems
         {
             if (root != null)
             {
-                Console.WriteLine($"Current Node: ({root.Val})");
+                Console.WriteLine($"Current Node: ({root.val})");
             }
             if (root == null)
             {
@@ -390,33 +391,21 @@ namespace LeetCodeProblems
                 return true;
             }
 
-            if (root.Val >= max || root.Val <= min)
+            if (root.val >= max || root.val <= min)
             {
-                if (root.Val >= max)
+                if (root.val >= max)
                 {
-                    Console.WriteLine($"Node ({root.Val}) is larger than the max value of {max}. Return False");
+                    Console.WriteLine($"Node ({root.val}) is larger than the max value of {max}. Return False");
                 }
                 
-                if (root.Val <= min)
+                if (root.val <= min)
                 {
-                    Console.WriteLine($"Node ({root.Val}) is smaller than the min value of {min}. Return False");
+                    Console.WriteLine($"Node ({root.val}) is smaller than the min value of {min}. Return False");
                 }
                 return false;
             }
-            return IsValidBST(root.Left, min, root.Val) && IsValidBST(root.Right, root.Val, max);
+            return IsValidBST(root.left, min, root.val) && IsValidBST(root.right, root.val, max);
 
-        }
-        
-        public class TreeNode
-        {
-            public int Val;
-            public TreeNode Left;
-            public TreeNode Right;
-
-            public TreeNode(int x)
-            {
-                Val = x;
-            }
         }
     }
 }

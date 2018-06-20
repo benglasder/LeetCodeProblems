@@ -1,4 +1,5 @@
-﻿using LeetCodeProblems;
+﻿using LeetCodeEntities.Trees;
+using LeetCodeProblems;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -11,20 +12,20 @@ namespace UnitTests
         [TestMethod]
         public void OneTwoThreeBinaryTreeIsValid()
         {
-            LeetCodeSolutions.TreeNode node = new LeetCodeSolutions.TreeNode(2);
-            node.Left = new LeetCodeSolutions.TreeNode(1);
-            node.Right = new LeetCodeSolutions.TreeNode(3);
+            TreeNode node = new TreeNode(2);
+            node.left = new TreeNode(1);
+            node.right = new TreeNode(3);
             Assert.IsTrue(_leet.IsValidBST(node));
         }
         
         [TestMethod]
         public void FiveOneFourNullNullThreeSixBinaryTreeIsNotValid()
         {
-            LeetCodeSolutions.TreeNode node = new LeetCodeSolutions.TreeNode(5);
-            node.Left = new LeetCodeSolutions.TreeNode(1);
-            node.Right = new LeetCodeSolutions.TreeNode(4);
-            node.Right.Left = new LeetCodeSolutions.TreeNode(3);
-            node.Right.Right = new LeetCodeSolutions.TreeNode(6);
+            TreeNode node = new TreeNode(5);
+            node.left = new TreeNode(1);
+            node.right = new TreeNode(4);
+            node.right.left = new TreeNode(3);
+            node.right.right = new TreeNode(6);
             Assert.IsFalse(_leet.IsValidBST(node));
         }
         
