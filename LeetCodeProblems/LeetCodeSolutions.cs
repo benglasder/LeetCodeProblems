@@ -320,7 +320,7 @@ namespace LeetCodeProblems
             return max;
         }
 
-        public IList<int> SpiralOrder(int[,] matrix)
+        public static IEnumerable<int> SpiralOrder(int[,] matrix)
         {
 
             IList<int> result = new List<int>();           
@@ -346,7 +346,7 @@ namespace LeetCodeProblems
 
                 right--;
 
-                if (left < right && result.Count() < matrix.Length)
+                if (result.Count() < matrix.Length)
                 {
                     for (int i = right - 1; i >= left; i--)
                     {
@@ -356,7 +356,7 @@ namespace LeetCodeProblems
                     bottom--;
                 }
 
-                if (top < bottom && result.Count() < matrix.Length)
+                if (result.Count() < matrix.Length)
                 {
                     for (int i = bottom - 1; i >= top; i--)
                     {

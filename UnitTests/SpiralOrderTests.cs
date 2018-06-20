@@ -23,7 +23,7 @@ namespace UnitTests
 
             var expected = new int[] {1, 2, 3, 6, 9, 8, 7, 4, 5};
 
-            var result = _leet.SpiralOrder(input).ToArray();
+            var result = LeetCodeSolutions.SpiralOrder(input).ToArray();
             
             Console.WriteLine("Expected:");
             foreach (var num in expected)
@@ -54,7 +54,7 @@ namespace UnitTests
 
             var expected = new int[] {1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7};
 
-            var result = _leet.SpiralOrder(input).ToArray();
+            var result = LeetCodeSolutions.SpiralOrder(input).ToArray();
             
             Console.WriteLine("Expected:");
             foreach (var num in expected)
@@ -84,7 +84,7 @@ namespace UnitTests
 
             var expected = new int[] {1, 2, 4, 3};
 
-            var result = _leet.SpiralOrder(input).ToArray();
+            var result = LeetCodeSolutions.SpiralOrder(input).ToArray();
             
             Console.WriteLine("Expected:");
             foreach (var num in expected)
@@ -116,7 +116,7 @@ namespace UnitTests
 
             var expected = new int[] {1, 2, 3, 6, 9, 12, 11, 10, 7, 4, 5, 8};
 
-            var result = _leet.SpiralOrder(input).ToArray();
+            var result = LeetCodeSolutions.SpiralOrder(input).ToArray();
             
             Console.WriteLine("Expected:");
             foreach (var num in expected)
