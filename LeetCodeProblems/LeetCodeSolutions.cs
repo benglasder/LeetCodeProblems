@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -371,6 +372,51 @@ namespace LeetCodeProblems
             return result;
 
         }
+
+        public bool IsValidBST(TreeNode root)
+        {
+            return IsValidBST(root, int.MinValue, int.MaxValue);
+        }
+
+        private bool IsValidBST(TreeNode root, int min, int max)
+        {
+            if (root != null)
+            {
+                Console.WriteLine($"Current Node: ({root.Val})");
+            }
+            if (root == null)
+            {
+                Console.WriteLine("Node is Null. Return True");
+                return true;
+            }
+
+            if (root.Val >= max || root.Val <= min)
+            {
+                if (root.Val >= max)
+                {
+                    Console.WriteLine($"Node ({root.Val}) is larger than the max value of {max}. Return False");
+                }
+                
+                if (root.Val <= min)
+                {
+                    Console.WriteLine($"Node ({root.Val}) is smaller than the min value of {min}. Return False");
+                }
+                return false;
+            }
+            return IsValidBST(root.Left, min, root.Val) && IsValidBST(root.Right, root.Val, max);
+
+        }
         
+        public class TreeNode
+        {
+            public int Val;
+            public TreeNode Left;
+            public TreeNode Right;
+
+            public TreeNode(int x)
+            {
+                Val = x;
+            }
+        }
     }
 }
