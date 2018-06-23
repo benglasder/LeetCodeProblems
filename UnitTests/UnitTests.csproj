@@ -51,6 +51,7 @@
     <Compile Include="BinarySearchTreeTests.cs" />
     <Compile Include="MaxProfitTests.cs" />
     <Compile Include="MyAtoi2.cs" />
+    <Compile Include="SortingTests.cs" />
     <Compile Include="SpiralOrderTests.cs" />
     <Compile Include="TwoSumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

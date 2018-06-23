@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using LeetCodeEntities.Trees;
 using LeetCodeProblems;
@@ -58,6 +59,41 @@ namespace UnitTests
             root.Print();
             
             Assert.IsTrue(result.SequenceEqual(expected));
+        }
+
+        [TestMethod]
+        public void FindAValueThatExists()
+        {
+            var values = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18};
+            var root = new TreeNode(values);
+            
+            root.Print();
+
+            var expected = new TreeNode(18);
+            var result = TreeNode.Find(root, 18);
+            
+            Assert.IsTrue(expected.val == result.val);
+        }
+
+        [TestMethod]
+        public void LevelOrderTraversal()
+        {
+            var root = new TreeNode(3);
+            root.left = new TreeNode(9);
+            root.right = new TreeNode(20);
+            root.right.left = new TreeNode(15);
+            root.right.right = new TreeNode(7);
+
+            var expected = new List<List<int>>();
+            expected.Add(new List<int>{3});
+            expected.Add(new List<int> {9, 20});
+            expected.Add(new List<int> {15, 7});
+
+            var result = _leet.LevelOrder(root);
+            for (int i = 0; i < result.Count; i++)
+            {
+                Assert.IsTrue(result[i].SequenceEqual(expected[i]));
+            }
         }
         
     }

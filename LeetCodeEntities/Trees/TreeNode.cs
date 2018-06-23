@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Linq;
 using System.Net.Configuration;
 
@@ -89,6 +90,34 @@ namespace LeetCodeEntities.Trees
 
             return list;
         }
+
+        public static TreeNode Find(TreeNode current, int data)
+        {
+            if (current == null || current.val == data)
+            {
+                Console.WriteLine($"Match Found! ({current.val})");
+                return current;
+            }            
+
+            if (data < current.val)
+            {
+                Console.WriteLine($"Current Value is larger than what we are looking for. Move Left ({current.val})");
+                return Find(current.left, data);
+            }
+            
+            Console.WriteLine($"Current Value is less than what we are looking for. Move Right ({current.val})");
+            return Find(current.right, data);
+        }
+
+        public TreeNode OrganizedTree(TreeNode root)
+        {
+            var values = root.InOrderTraversal();
+
+            var topNode = values;
+
+            return root;
+        }
+        
     }
     
     

@@ -407,5 +407,34 @@ namespace LeetCodeProblems
             return IsValidBST(root.left, min, root.val) && IsValidBST(root.right, root.val, max);
 
         }
+
+        public List<List<int>> LevelOrder(TreeNode root)
+        {
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            List<List<int>> wrapList = new List<List<int>>();
+
+            if (root == null) return wrapList;
+            
+            queue.Enqueue(root);
+            while (queue.Count != 0)
+            {
+                int levelNum = queue.Count;
+                List<int> subList = new List<int>();
+
+                for (int i = 0; i < levelNum; i++)
+                {
+                    if(queue.Peek().left != null)
+                        queue.Enqueue(queue.Peek().left);
+                    if(queue.Peek().right != null)
+                        queue.Enqueue(queue.Peek().right);
+                    subList.Add(queue.Dequeue().val);
+                }
+                wrapList.Add(subList);
+            }
+
+            return wrapList;
+        }
+        
+        
     }
 }
