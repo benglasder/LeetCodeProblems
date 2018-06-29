@@ -17,7 +17,7 @@ namespace UnitTests
             var startTime = DateTime.Now;
             var input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
             var expected = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
-            var result = _sort.BubbleSort(input);
+            var result = SortMethods.BubbleSort(input);
 
             var endTime = DateTime.Now;
             
@@ -32,7 +32,7 @@ namespace UnitTests
             var startTime = DateTime.Now;
             var input = new int[]    {7, 2, 3, 4, 5, 6, 1, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
             var expected = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
-            var result = _sort.BubbleSort(input);
+            var result = SortMethods.BubbleSort(input);
 
             var endTime = DateTime.Now;
 

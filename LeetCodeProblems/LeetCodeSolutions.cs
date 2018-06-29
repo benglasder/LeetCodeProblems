@@ -435,6 +435,46 @@ namespace LeetCodeProblems
             return wrapList;
         }
         
+        public int CountPrimes(int n) {
+            List<int> allNumbers = new List<int>();
+            int count = 0;
+            for(int i = 1; i < n; i++){
+                allNumbers.Add(i);
+            }
+        
+            foreach(var num in allNumbers)
+            {
+                if (isPrime(num))
+                {
+                    Console.WriteLine($"{num} is prime.");
+                    count++;
+                }
+                    
+            }
+        
+            return count;
+        
+        }
+
+        private bool isPrime(int n)
+        {
+            if (n % 2 == 0)
+            {
+                return false;
+            }
+
+            for (int i = 3; i * i <= n; i += 2)
+            {
+                if (n % i == 0)
+                {
+                    return false;
+                }
+                
+            }
+
+            return true;
+        }
+        
         
     }
 }

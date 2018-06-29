@@ -5,7 +5,7 @@ namespace LeetCodeEntities
 {
     public class SortMethods
     {
-        public int[] BubbleSort(int[] arr)
+        public static int[] BubbleSort(int[] arr)
         {
             var flag = true;
             int temp = 0;

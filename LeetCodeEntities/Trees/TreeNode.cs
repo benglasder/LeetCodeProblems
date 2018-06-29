@@ -109,14 +109,36 @@ namespace LeetCodeEntities.Trees
             return Find(current.right, data);
         }
 
-        public TreeNode OrganizedTree(TreeNode root)
+        public TreeNode OrganizedTree(TreeNode tree)
         {
-            var values = root.InOrderTraversal();
+            var values = tree.InOrderTraversal().ToArray();
 
-            var topNode = values;
+            var sortedValues = SortMethods.BubbleSort(values).ToList();
+
+            var index = sortedValues.Count / 2;
+            var root = new TreeNode(sortedValues.ElementAt(index));
+            
+            while (sortedValues.Count != 0)
+            {
+                var j = sortedValues.Count / 2;
+                var node = new TreeNode(sortedValues.ElementAt(index));
+                sortedValues.Remove(index);
+            }
+
+
+            if (sortedValues[index - 1] == sortedValues[index])
+            {
+                root.right = new TreeNode(sortedValues[index - 1]);
+            }
+            else
+            {
+                
+            }
 
             return root;
         }
+        
+        
         
     }
     
